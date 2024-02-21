@@ -1,0 +1,251 @@
+/* Flexbox =
+
+Istilah =
+  Container = Pembungkus seluruh item/box
+  Item = jumlah box yang ada dalam container
+
+  Main Axis = menentukan urutan penempatan item secara horizontal
+  Cross Axis = menentukan penempatan item secara vertikal
+
+  Main Size = ukuran container/width
+  Cross size = ukuran container/height
+
+  Main Start = menentukan awal dari element secara horizontal
+  Main End = menentukan akhir dari element secara horizontal
+  
+  Cross Start = menentukan awal dari element secara vertikal
+  Cross End = menentukan akhir dari element secara vertikal
+*/
+
+/* Property container =
+
+.container {
+  display: flex | inline-flex ;
+  membuat sebuah element parent dan element didalamnya menjadi flexbox
+}
+
+.container {
+  flex-direction: row | row-reverse | coloumn | coloumn-reverse ;
+  mengatur arah/urutan item di dalam container
+}
+
+.container {
+  flex-wrap: nowrap | wrap | wrap-reverse ;
+  apabila item melebihi ukuran container maka item tersebut akan dipindahkan ke baris bawah
+}
+
+.container {
+  justify-content: flex-start | flex-end | center | space-between | space-around | space-evenly ;
+  mengatur jarak antar items
+}
+
+.container {
+  align-items: flex-start | flex-end | center | stretch | baseline ;
+  mengatur perilaku penjajaran items terhadap cross axis
+}
+
+.container {
+  align-content: flex-start | flex-end | center | stretch | spcae-beetwen | space-around ;
+  mengatur jarak antar items terhadap cross axis
+  (hanya berfungsi ketika item lebih dari 1 baris)
+}
+*/
+
+/* Property Items =
+.item {
+  order: 1 | 2 | 3 | 4 | n
+  mengatur urutan posisi item pada container
+}
+
+.item {
+  flex-grow: 1 | 2 | 3 | 4 | n
+  mengatur ukuran item
+  (jika item tidak diberi length maka seluruh item akan memenuhi container)
+}
+
+.item {
+  align-self: flex-start | flex-end | center | stretch | baseline ;
+  mengatur perilaku penjajaran sebuah item yang spesifik terhadap cros axis
+}
+*/
+* {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+div.cons {
+  width: 350px;
+  padding: 20px;
+  margin: 20px;
+  text-align: center;
+  background-color: salmon;
+  border-radius: 20px;
+}
+
+div.cons p,
+div.cons div.sub h3 {
+  text-align: left;
+}
+
+.item {
+  background-color: blue;
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 5px;
+}
+
+div.dct div.sub div.container {
+  border: 1px solid black;
+  width: fit-content;
+  display: flex;
+  justify-content: space-around;
+}
+
+div.cons div.sub div.row {
+  flex-direction: row;
+}
+
+div.cons div.sub div.row-reverse {
+  flex-direction: row-reverse;
+}
+
+div.cons div.sub div.column {
+  flex-direction: column;
+}
+
+div.cons div.sub div.column-reverse {
+  flex-direction: column-reverse;
+}
+
+div.wr div.sub div.container {
+  border: 1px solid black;
+  width: calc(4 * 50px + 10px);
+  display: flex;
+}
+
+div.cons div.sub div.no-wrap {
+  flex-wrap: nowrap;
+}
+
+div.cons div.sub div.wrap {
+  flex-wrap: wrap;
+}
+
+div.cons div.sub div.wrap-reverse {
+  flex-wrap: wrap-reverse;
+}
+
+div.jc div.sub div.container {
+  border: 1px solid black;
+  width: calc(5 * 50px);
+  display: flex;
+}
+
+div.cons div.sub div.flex-start {
+  justify-content: flex-start;
+}
+
+div.cons div.sub div.flex-end {
+  justify-content: flex-end;
+}
+
+div.cons div.sub div.center {
+  justify-content: center;
+}
+
+div.cons div.sub div.space-between {
+  justify-content: space-between;
+}
+
+div.cons div.sub div.space-around {
+  justify-content: space-around;
+}
+
+div.cons div.sub div.space-evenly {
+  justify-content: space-evenly;
+}
+
+div.ai div.sub div.container {
+  border: 1px solid black;
+  width: calc(5 * 50px);
+  height: 150px;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+div.ai div.sub div.flex-start {
+  align-items: flex-start;
+}
+
+div.ai div.sub div.flex-end {
+  align-items: flex-end;
+}
+
+div.ai div.sub div.center {
+  align-items: center;
+}
+
+div.ai div.sub div.stretch {
+  align-items: stretch;
+}
+div.stretch .item {
+  height: auto;
+}
+
+div.ai div.sub div.baseline {
+  align-items: baseline;
+}
+div.ai div.sub div.baseline .dua {
+  font-size: 30px;
+  line-height: normal;
+}
+div.ai div.sub div.baseline .tiga {
+  font-size: 10px;
+  line-height: normal;
+}
+div.ai div.sub div.baseline .empat {
+  font-size: 45px;
+  line-height: normal;
+}
+
+div.ac div.sub div.container {
+  border: 1px solid black;
+  width: calc(6 * 50px + 10px);
+  height: 250px;
+  display: flex;
+}
+
+div.ac div.sub div.flex-start {
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+div.ac div.sub div.flex-end {
+  flex-wrap: wrap;
+  align-content: flex-end;
+}
+
+div.ac div.sub div.center {
+  flex-wrap: wrap;
+  align-content: center;
+}
+
+div.ac div.sub div.space-between {
+  flex-wrap: wrap;
+  align-content: space-between;
+}
+
+div.ac div.sub div.space-around {
+  flex-wrap: wrap;
+  align-content: space-around;
+}
